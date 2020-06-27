@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="container">
+  <div class="glow">
+    <h1 style="text-align: center; font-weight: bold; color: #3369e7">CHC Milestones</h1>
+  </div>
+  <div class="our-services-wrapper mb-60" *ngFor="let achieve of achievement">
+    <div class="services-inner">
+      <div class="our-services-img">
+        <img src="../../assets/s6.png" alt="">
+      </div>
+      <div class="our-services-text">
+
+        <p *ngIf="(adminLoginStatus$ | async) as adminLoginStatus"><i class="fas fa-trash" (click)="deleteAchievement(achieve)" data-toggle="tooltip" title="Delete" style="color: red; cursor: pointer; font-size: 16px; float: right; padding: 20px"></i></p>
+        <h2>{{achieve.achievementYearHeading}}</h2><br><br>
+        <p *ngFor="let para of achieve.achievementScores"><i class="fa fa-check-circle"
+                                                             style="font-size:18px; color: deepskyblue"></i> {{para.achievementPara}}
+        </p><br>
+        <p><img [src]="achieve.achievementImage.path" style="width: 95%;"></p>
+      </div>
+    </div>
+  </div>
+  <button *ngIf="(adminLoginStatus$ | async) as adminLoginStatus" type="submit" class="btn btn-primary" style="margin-left: 1000px" (click)="openAddAchievementDialog()">Add
+    Achievement
+  </button>
+</div>

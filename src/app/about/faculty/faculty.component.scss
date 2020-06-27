@@ -1,0 +1,147 @@
+.x{
+  width: 100%;
+  height: auto;
+  position: relative;
+  top: 160px;
+  margin-bottom: 100px;
+
+  .container{
+
+    position: relative;
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+    .mb-60 {
+      margin-bottom: 60px;
+    }
+    .services-inner {
+      border: 2px solid #3369e7;
+      margin-left: 35px;
+      transition: .3s;
+      background: #fff;
+      margin-top: 0px;
+      //margin-bottom: -50px;
+
+    }
+    .our-services-img {
+      float: left;
+      margin-left: -36px;
+      margin-right: 22px;
+      margin-top: 28px;
+
+    }
+    .our-services-img img {
+      width: 68px;
+
+    }
+    .our-services-text {
+      padding-right: 10px;
+    }
+    .our-services-text {
+      overflow: hidden;
+      padding: 28px 0 25px;
+    }
+    .our-services-text h4 {
+      color: #222222;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      padding-bottom: 10px;
+      position: relative;
+      text-transform: uppercase;
+    }
+
+    .faculty_inner {
+      border: 2px solid #3369e7;
+      //margin-left: 35px;
+      transition: .3s;
+      background: #fff;
+      margin-top: 0px;
+      width: 255px;
+      //margin-bottom: 20px;
+      //height: 400px;
+      //width: 150px;
+      //margin-bottom: -50px;
+      .our-faculty_pic img {
+        width: 200px;
+        height: 250px;
+       margin-left: 20px;
+      }
+    }
+
+
+    .our-faculty_pic h4 {
+      color: black;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      background: linear-gradient(25deg, #3369e7, white);
+      margin-bottom: 0px;
+      //padding-bottom: 10px;
+      //position: relative;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+
+
+    .our-faculty_pic p {
+      margin-bottom: 0;
+      text-align: center;
+      background: linear-gradient(25deg, #3369e7, white);
+      color: #dc3545;
+      font-size: 18px;
+    }
+
+
+    .position-image img {
+      position: absolute;
+      top: 16%;
+      left: 0%;
+      bottom: 0%;
+      width: 20%;
+      z-index: -1;
+      margin-top: px;
+    }
+    .our-services-text h4::before {
+      background: #3369e7 none repeat scroll 0 0;
+      bottom: 0;
+      content: "";
+      height: 1px;
+      position: absolute;
+      width: 40px;
+    }
+    .our-services-wrapper:hover .services-inner {
+      background: #fff none repeat scroll 0 0;
+      border: 2px solid transparent;
+      box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.2);
+    }
+    .our-services-text p {
+      margin-bottom: 0;
+    }
+    .services p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 26px;
+      color: #666;
+    }
+    .services  {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 20px;
+
+
+    }
+    /*-- //services-- */
+.faculty_icon{
+  transition: transform .2s; /* Animation */
+  cursor: pointer;
+}
+    .faculty_icon:hover {
+      transform: scale(1.5); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    }
+
+  }
+}
+

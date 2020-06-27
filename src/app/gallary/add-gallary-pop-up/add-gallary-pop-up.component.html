@@ -1,0 +1,36 @@
+<h2>Add Gallary Item</h2>
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="gallaryForm" (ngSubmit)="galleryFormSubmit()">
+      <div class="form-group">
+        <input type="text" formControlName="eventTitle" class="form-control" placeholder="Enter Event Title...(Min three characters)" [(ngModel)]="galleryData.eventTitle">
+      </div>
+      <div *ngIf="gallaryForm.controls.eventTitle.errors && (gallaryForm.controls.eventTitle.touched || gallaryForm.controls.eventTitle.dirty) " style="color: red">
+        <div *ngIf="gallaryForm.hasError('required', 'eventTitle')"></div>
+        Event Title is Required.
+      </div>
+      <div *ngIf="uploadError">
+        <div [innerHTML]="uploadError" class="error"></div>
+      </div>
+      <div class="form-group">
+        <div class="upload-image">
+          <div #image class="image-wrapper">
+          </div>
+          <div class="browse-btn">
+            <input type="file" name="cameraImg" id="cameraImg" accept="image/*" (change)="onSelectedFile($event)" multiple [(ngModel)]="galleryData.image"/>
+            <div class="browse-image">
+              <img src="../../assets/browse.png" width="60px"/>
+              <p>Browse Image</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="clearfix"></div>
+
+        <button type="submit" class="btn btn-success" [disabled]="!gallaryForm.valid">Save Gallary</button>
+
+    </form>
+    <p>{{error}}</p>
+  </div>
+</div>

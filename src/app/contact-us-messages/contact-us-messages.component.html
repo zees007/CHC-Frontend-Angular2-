@@ -1,0 +1,43 @@
+<app-admin-header></app-admin-header>
+
+<div class="container">
+  <h1 style="font-weight: bold">Queries/Feedbacks</h1>
+  <div class="createButton">
+    <div class="topnav">
+
+      <div class="search-container">
+        <form>
+          <input type="text" placeholder="Search.." name="search" [(ngModel)]="searchText">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+
+<br>
+  <div class="row col-md-24 col-md-offset-2 custyle">
+    <table class="table table-striped table-dark">
+      <thead >
+      <tr style="font-weight: bold; font-size: 12px">
+        <td>ID</td>
+        <td>NAME</td>
+        <td>SUBJECT</td>
+        <td>EMAIL</td>
+        <td>MESSAGE</td>
+        <td>ACTION</td>
+      </tr>
+      </thead>
+      <tbody style="font-size: 10px">
+      <tr *ngFor="let contactQuery of contactUsQueries | filter: searchText;" >
+        <td>{{contactQuery.id}}</td>
+        <td>{{contactQuery.name}}</td>
+        <td>{{contactQuery.subject}}</td>
+        <td>{{contactQuery.email}}</td>
+        <td>{{contactQuery.message}}</td>
+        <td><button class="btn btn-danger" (click)="openEmailReplyPopup(contactQuery.email)">Reply</button> </td>
+        <td><i class="fas fa-trash" data-toggle="tooltip" title="Delete" style="color: red; cursor: pointer; font-size: 12px" (click)="deleteContactUsQuery(contactQuery.id)"></i> </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  </div>

@@ -1,0 +1,78 @@
+<app-header></app-header>
+
+<div class="container">
+  <section class="services py-5" id="services">
+  <div class="row">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12" *ngFor="let tutorial of tutorials">
+      <div class="our-services-wrapper mb-60">
+        <p *ngIf="(adminLoginStatus$ | async) as adminLoginStatus"><i class="fas fa-trash" data-toggle="tooltip" (click)="deleteTutorials(tutorial)" title="Delete" style="color: red; cursor: pointer; font-size: 16px"></i></p>
+          <div class="services-inner">
+          <div class="our-services-text">
+            <h4>{{tutorial.videoTitle}}</h4>
+            <iframe width="550" height="315" [src]=getEmbeddedUrl(tutorial) frameborder="0" allow=" autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!--    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+<!--      <div class="our-services-wrapper mb-60">-->
+<!--        <div class="services-inner">-->
+
+<!--          <div class="our-services-text">-->
+<!--            <h4>Mathematics Tutorials</h4>-->
+<!--            <iframe width="550" height="315" src="https://www.youtube.com/embed/videoseries?list=PLX-aX2DJ9xQGnrHNzJ5AGrspQjOZEAXEZ" frameborder="0" allow=" autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+<!--      <div class="our-services-wrapper mb-60">-->
+<!--        <div class="services-inner">-->
+<!--          <div class="our-services-text">-->
+<!--            <h4>Physics Tutorials</h4>-->
+<!--            <iframe width="550" height="315" src="https://www.youtube.com/embed/videoseries?list=PLX-aX2DJ9xQE6pmh7zKxbGXlE638JaqWQ" frameborder="0" allow=" autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+<!--      <div class="our-services-wrapper mb-60">-->
+<!--        <div class="services-inner">-->
+<!--          <div class="our-services-text">-->
+<!--            <h4>Biology Tutorials</h4>-->
+<!--            <iframe width="550" height="315" src="https://www.youtube.com/embed/videoseries?list=PLX-aX2DJ9xQHPefMp8z2GZ3MqB3QJuIEz" frameborder="0" allow=" autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+<!--      <div class="our-services-wrapper mb-60">-->
+<!--        <div class="services-inner">-->
+<!--          <div class="our-services-text">-->
+<!--            <h4>Chemistry Tutorials</h4>-->
+<!--            <iframe width="550" height="315" src="https://www.youtube.com/embed/videoseries?list=PLX-aX2DJ9xQEB1QKEeUsmBgkHoVXgiKHV" frameborder="0" allow=" autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">-->
+<!--      <div class="our-services-wrapper mb-60">-->
+<!--        <div class="services-inner">-->
+<!--          <div class="our-services-text">-->
+<!--            <h4>GK & Indo-Islamic</h4>-->
+<!--            <iframe width="550" height="315" src="https://www.youtube.com/embed/videoseries?list=PLX-aX2DJ9xQHAXkomdxCPnwV66F0Rz0-c" frameborder="0" allow=" autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+  </div>
+
+
+    <div class="add_icon" *ngIf="(adminLoginStatus$ | async) as adminLoginStatus">
+    <img class="faculty_icon" src="../../assets/join-testimonial-icon.png" alt="" data-toggle="tooltip" title="Add Tutorials" (click)="openAddTutorialPopUp()">
+    </div>
+  </section>
+</div>

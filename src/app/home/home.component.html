@@ -1,0 +1,146 @@
+<!-- header -->
+<header>
+  <div class="container">
+    <!-- nav -->
+    <nav class="navbar navbar-expand-sm navbar-dark">
+
+
+      <!-- Brand/logo -->
+      <a class="navbar-brand" href="#">
+        <img src="../../assets/chc_logo.png" alt="logo" style="width:150px;">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse main-menu-item justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" routerLink="/home">Home</a></li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              About
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a style="color: #606060" class="dropdown-item" routerLink="/about/director">Director</a>
+              <a style="color: #606060" class="dropdown-item" routerLink="/about/manager">Manager</a>
+              <a style="color: #606060" class="dropdown-item" routerLink="/about/faculty">Faculty</a>
+              <a style="color: #606060" class="dropdown-item" routerLink="/about/facility">Facility</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/courses">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/gallery">Gallery</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/achievements">Achievements</a>
+          </li>
+
+          <li class="nav-item" *ngIf="(loginStatus$ | async) as loginStatus">
+            <a class="nav-link" routerLink="/tutorials" routerLinkActive="active">Tutorials</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact">Contact</a>
+          </li>
+
+          <li class="nav-item" *ngIf="!(loginStatus$ | async) as loginStatus">
+            <a class="nav-link" routerLink="#" *ngIf="loginStatus" (click)="openLoginPopUp()" ><i class='fas fa-user-alt' style='font-size:12px'></i> Login</a>
+          </li>
+
+          <li class="nav-item" *ngIf="(loginStatus$ | async) as loginStatus">
+            <a class="nav-link" *ngIf="(fullname | async) as fullname">{{fullname | uppercase }} <i class='fas fa-user-alt' style='font-size:12px'></i></a>
+          </li>
+
+          <li class="nav-item" *ngIf="(loginStatus$ | async) as loginStatus">
+            <a class="btn btn-primary text-white" *ngIf="loginStatus" (click)="onLogout()">Logout</a>
+          </li>
+
+
+        </ul>
+      </div>
+    </nav>
+    <!-- //nav -->
+  </div>
+</header>
+
+
+<!-- //header -->
+
+<!-- banner -->
+<div class="banner" id="home">
+  <div class="layer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 banner-text-w3pvt">
+          <!-- banner slider-->
+
+
+                <div class="container-fluid">
+                  <div class="w3ls_banner_txt">
+                    <div *ngFor="let latest of latestUpdateData">
+                    <div class="glow">
+                    <h3 class="b-w3ltxt text-capitalize mt-md-4">{{latest.heading}}</h3>
+                    <h3 class="b-w3ltxt text-capitalize mt-md-2">{{latest.subHeading}}</h3>
+                    <p class="b-w3ltxt my-3">{{latest.latestNote}}</p>
+                    </div>
+                      <button *ngIf="(adminLoginStatus$ | async) as adminLoginStatus" class="btn btn-danger" (click)="deleteLatestUpdate(latest)">Delete</button>
+                    </div>
+                    <button *ngIf="(adminLoginStatus$ | async) as adminLoginStatus" class="btn btn-banner my-3" (click)="openLatestUpdatepopUp()">Create Headline</button>
+
+
+                  </div>
+                </div>
+
+            <div class="navigation">
+
+
+          </div>
+          <!-- //banner slider-->
+        </div>
+        <div class="col-lg-5 col-md-8 px-lg-3 px-0">
+          <div class="banner-form-w3 ml-lg-5">
+            <div class="padding">
+              <!-- banner form -->
+
+              <form #registerForm="ngForm" (ngSubmit)="saveRegisterForm(registerForm)" >
+                <h2 style="margin-left: 11px">Register for Premium Membership</h2>
+                <h3 class="text-success">{{msg}}</h3>
+                <div class="form-style-w3ls">
+                  <input #serial="ngModel" placeholder="Enrollment Number" name="serial" type="text" required="" [(ngModel)]="registration.serial" appUniqueSerial>
+                  <div class="text-danger" *ngIf="serial.invalid && (serial.dirty || serial.touched)">
+                    <div *ngIf="serial.errors['required']"><i class="fa fa-check-circle" style="font-size:18px; color: red"> Please provide valid enrollment number or may be You are not enrolled in CHC premium membership. Please contact CHC administration for premium account or send query from contact us page.</i></div>
+                    <div *ngIf="serial.errors['appUniqueSerial']"><i class="fa fa-check-circle" style="font-size:18px; color: deepskyblue"> Wow... You have been enrolled with this enrollment number. Complete the registration.</i></div>
+                  </div>
+
+                  <input #username="ngModel" placeholder="Username" name="username" type="text" required="" [(ngModel)]="registration.username">
+                  <div class="text-danger" *ngIf="username.invalid && (username.dirty || username.touched)">
+                    <div *ngIf="username.errors['required']"><i class="fa fa-check-circle" style="font-size:18px; color: red"> Username is required.</i></div>
+                  </div>
+                  <input placeholder="Password" name="password" type="password" required="" [(ngModel)]="registration.password">
+                  <input placeholder="Student Full Name" name="fullname" type="text" required="" [(ngModel)]="registration.fullname">
+                  <input placeholder="Your Email Id" name="email" type="email" required="" [(ngModel)]="registration.email">
+                  <input placeholder="Contact Number" name="contact" type="text" required="" [(ngModel)]="registration.contact">
+                  <!--<input placeholder="Password" name="password" type="password" required=""> -->
+                  <button Class="btn" [disabled]="serial.valid" > Get Started</button>
+                  <span>By registering, you agree to our <a href="#">Terms & Conditions.</a></span>
+                </div>
+              </form>
+              <!-- //banner form -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //banner -->
+<div class="banner-container">
+  <app-home-container></app-home-container>
+</div>
+
+<section class="slider_testimonial">
+  <app-testimonials></app-testimonials>
+</section>

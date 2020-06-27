@@ -1,0 +1,96 @@
+<div class="header_fixed">
+<app-header></app-header>
+</div>
+
+<!-- ================ contact section start ================= -->
+<div class="y">
+  <div class="container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1421.1715169360446!2d82.6548274320565!3d26.540945515482058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3990e966e981bb33%3A0xcbe5f12813729dd7!2sConcept%20Hub%20Classes%20Coaching%20Center!5e1!3m2!1sen!2sqa!4v1573643194191!5m2!1sen!2sqa" width="100%" height="480" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+    <div class="row">
+      <div class="col-12">
+        <h1 class="contact-title">Get in Touch</h1>
+      </div>
+
+      <div class="col-lg-8">
+
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmitContactForm(contactForm.value)">
+          <div class="row">
+            <div class="col-12">
+
+              <div class="form-group">
+                <textarea class="form-control w-100" required formControlName="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder = 'Enter Message' [(ngModel)]="contact.message"> </textarea>
+                <div *ngIf="contactForm.controls.message.errors && (contactForm.controls.message.touched || contactForm.controls.message.dirty) " style="color: red">
+                  <div *ngIf="contactForm.hasError('required', 'message')"></div>
+                  Message name is Required.
+                </div>
+              </div>
+
+              </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <input class="form-control" formControlName="name" required id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder = 'Enter your name' [(ngModel)]="contact.name">
+                <div *ngIf="contactForm.controls.name.errors && (contactForm.controls.name.touched || contactForm.controls.name.dirty) " style="color: red">
+                  <div *ngIf="contactForm.hasError('required', 'name')"></div>
+                  Name is Required.
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="input-field form-group">
+                <input class="form-control" formControlName="email" email required id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder = 'Enter email address' [(ngModel)]="contact.email">
+                <div *ngIf="contactForm.controls.email.errors && (contactForm.controls.email.touched || contactForm.controls.email.dirty) " style="color: red">
+                  <div *ngIf="contactForm.hasError('required', 'email')"></div>
+                  Email is Required in valid format.
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="form-group">
+                <input class="form-control" formControlName="subject" required id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder = 'Enter Subject' [(ngModel)]="contact.subject">
+                <div *ngIf="contactForm.controls.subject.errors && (contactForm.controls.subject.touched || contactForm.controls.subject.dirty) " style="color: red">
+                  <div *ngIf="contactForm.hasError('required', 'subject')"></div>
+                  Subject is Required.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group mt-3">
+            <button type="submit" id="send_mail" [disabled]="!contactForm.valid" class="btn btn-primary">Send Message</button>
+          </div>
+        </form>
+
+
+      </div>
+      <div class="col-lg-4">
+        <div class="single-footer-widget">
+          <h1>Contact Us</h1>
+          <div class="contact_info">
+            <p><span class="text-primary"> Address :</span> Mohallah Sakrawal East, Tanda - 224190, Distt. Ambedkar Nagar (UP), India</p>
+            <p><span class="text-primary"> Phone :</span> +91 8960357410, 8604589822, 8604783829</p>
+            <p><span class="text-primary"> Email : </span> concepthubclasses02@gmail.com</p>
+            <p><span class="text-primary"> Website : </span> www.concepthubclass.com</p>
+          </div>
+        </div>
+        <div class="row my-2 mr-4"></div>
+
+        <a href="https://www.facebook.com/concepthubclasses/?ref=bookmarks" target="_blank" class="my-2 mr-4 text-white ">
+          <i class="fab fa-facebook" style="font-size: 22px; color: blue"></i>
+        </a>
+        <a href="https://twitter.com/CHCtanda" target="_blank" class="my-2 mr-4 text-white">
+          <i class="fab fa-twitter" style="font-size: 22px; color: #3369e7"></i>
+        </a>
+        <a href="https://www.instagram.com/concept_hub_classes/" target="_blank" class="my-2 mr-4 text-white">
+          <i class="fab fa-instagram" style="font-size: 22px; color: brown"></i>
+        </a>
+        <a href="https://www.youtube.com/channel/UCHJRQ3zlrffYSClmgoylArw" target="_blank" class="my-2 mr-2">
+          <i class="fab fa-youtube" style="font-size: 22px; color: red"></i>
+        </a>
+
+      </div>
+    </div>
+    <!--    </div>-->
+  </div>
+
+</div>

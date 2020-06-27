@@ -1,0 +1,46 @@
+
+<app-header></app-header>
+
+<section class="x">
+  <section class="services py-5" id="services">
+    <div class="container">
+      <!-- //positioned image -->
+      <h3 class="heading mb-5" style="font-size: 50px; margin-left: 400px">Faculty Members</h3>
+      <div class="our-services-wrapper mb-60">
+        <div class="services-inner">
+          <div class="our-services-img">
+            <img src="../../assets/s6.png" alt="">
+          </div>
+          <div class="our-services-text">
+            <p><i class="fa fa-quote-left" style="font-size:12px"></i> It is our belief that excellent teaching begins with a strong relationship between students and teachers. Our faculty is passionate, talented and skilled to provide a dynamic and rewarding learning experience for pupils. Our teaching staff are guided by four core values i.e.Learning, Excellence, Equity and Care. They are an inspiring role model for the students. They encourage, engage, lead and motivate them to exercise curiosity and inquiry. We are proud to have a competent and qualified teaching fraternity that possess good experience. <i class="fa fa-quote-right" style="font-size:12px"></i></p>
+          </div>
+        </div>
+      </div>
+
+
+<!-- Faculty tiles-->
+      <div class="row ml-sm-5">
+
+        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let facultyItem of faculty">
+          <div class="our-services-wrapper mb-60">
+            <div class="faculty_inner">
+                <a *ngIf="(adminLoginStatus$ | async) as adminLoginStatus" data-toggle="tooltip" title="Delete" style="margin-left: 246px"><i class="fas fa-trash" (click)="deleteFaculty(facultyItem)"></i></a>
+                <div class="our-faculty_pic">
+                  <img [src]="facultyItem.facultyImage.path" alt="">
+                  <h4>{{facultyItem.facultyName}}</h4>
+                  <p>{{facultyItem.facultyEducation}}</p>
+                  <p>{{facultyItem.facultySubject}}</p>
+                </div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <div *ngIf="(adminLoginStatus$ | async) as adminLoginStatus" >
+      <img class="faculty_icon" src="../../assets/add-faculty-icon.png" alt="" style="margin-left: 1100px; width: 35px" data-toggle="tooltip" title="Add Faculty" (click)="openFacultyDialog()">
+      </div>
+    </div>
+
+  </section>
+</section>

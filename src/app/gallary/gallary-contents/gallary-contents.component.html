@@ -1,0 +1,22 @@
+<ng-container *ngFor="let galleryItem of gallery">
+<div class="glow">
+<h1 style="text-align: center; font-weight: bold; color: #3369e7">{{galleryItem.eventTitle}}</h1>
+  <p *ngIf="(adminLoginStatus$ | async) as adminLoginStatus"><i class="fas fa-trash" (click)="deleteGallary(galleryItem)" data-toggle="tooltip" title="Delete" style="color: red; cursor: pointer; font-size: 16px"></i></p>
+</div>
+<ngb-carousel
+              [showNavigationArrows]="true"
+              [showNavigationIndicators]="true"
+              interval="1200"
+              [keyboard]="true"
+              [pauseOnHover]="true"
+              [wrap]="true"
+              [activeId]="'secondSlide'">
+
+  <ng-template ngbSlide *ngFor="let img of galleryItem.image">
+    <div class="picsum-img-wrapper">
+      <img [src]="img.path" alt="Random first slide">
+    </div>
+    </ng-template>
+
+</ngb-carousel>
+</ng-container>

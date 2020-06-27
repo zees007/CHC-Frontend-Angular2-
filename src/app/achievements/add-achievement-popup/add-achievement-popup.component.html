@@ -1,0 +1,64 @@
+<h1>Add Achievement</h1>
+<form [formGroup]="achievementForm" (ngSubmit)="addNewAchievement()">
+
+  <div class="form-group">
+    <label for="achievementYearHeading">Year of Achievement:</label>
+    <input type="text" class="form-control" id="achievementYearHeading" formControlName="achievementYearHeading"
+           placeholder="eg. Achievements of 2018" required>
+    <!--    <div *ngIf="achievementForm.controls.achievementYearHeading.errors && (achievementForm.controls.achievementYearHeading.touched || achievementForm.controls.achievementYearHeading.dirty) " style="color: red">-->
+    <!--      <div *ngIf="achievementForm.hasError('required', 'achievementYearHeading')"></div>-->
+    <!--      Faculty name is Required.-->
+    <!--    </div>-->
+  </div>
+
+
+
+  <div formArrayName="achievementScores">
+    <div>
+      <div class="row" >
+      <div class="col-md-3" [formGroupName]="i"
+           *ngFor="let achievementPara of achievementForm.controls.achievementScores.controls; let i = index">
+
+        <label class="control-label" ><span style="color: red">Add Points {{i + 1}}</span></label>
+
+        <button  class="close-icon" *ngIf="achievementForm.get('achievementScores').length> 1" (click)="removeSelectedForm(i)"></button>
+
+        <div class="form-group">
+          <label [attr.for]="'achievementPara' + i">Achievement Points</label>
+          <input type="text" class="form-control" name="achievementPara" [id]="'achievementPara' + i" required=""
+                 formControlName="achievementPara" placeholder="Enter Achievement point-wise...">
+        </div>
+
+      </div>
+    </div>
+
+
+    <button type="submit" class="btn btn-primary" style="float: right" (click)="addNewForm()">Add Points</button><br>
+    </div>
+  </div>
+
+
+  <!--  <div class="form-group">-->
+  <!--                <span class="imagecontainer" *ngFor="let image of nestedReactiveForm.controls.userforms.controls[i].controls['images'].controls; let j = index">-->
+  <!--                  <img [src] ="image.value" style="width: 50px; height: 50px; margin-top: 5px">-->
+  <!--                  <div class="overlay">-->
+  <!--                    <a class="icon" title="remove" (click)="removeImage(j)">-->
+  <!--                      <i class="fa fa-trash" style="color: red"></i>-->
+  <!--                    </a>-->
+  <!--                  </div>-->
+  <!--                </span>-->
+  <!--  </div>-->
+
+
+  <div class="form-group">
+    <label>Upload Achievement Image:</label>
+    <input type="file" class="form-control" (change)="fileUpload($event)" accept="image/*"/>
+  </div>
+
+  <div class="form-group">
+  <button type="submit" class="btn btn-success" [disabled]="!achievementForm.valid">Submit</button>
+  </div>
+</form>
+
+
+

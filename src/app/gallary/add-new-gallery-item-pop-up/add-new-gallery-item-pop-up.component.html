@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2> Add Gallery Items</h2>
+      <form [formGroup]="nestedReactiveForm">
+        <div formArrayName="userforms">
+          <div class="row">
+            <div class="col-md-3" [formGroupName]="i"
+                 *ngFor="let reactiveForm of nestedReactiveForm.controls.userforms.controls; let i = index">
+              <div class="form-group">
+                <label class="control-label"><span style="color: red">Add Gallery Form {{i+1}}</span></label>
+                <a class="close-icon" *ngIf="nestedReactiveForm.controls.userforms.length> 1" (click)="removeSelectedForm(i)"></a>
+              </div>
+
+              <div class="form-group">
+                <label for="eventTitle"> Event Title:</label>
+                <input type="text" class="form-control" name="eventTitle" id="eventTitle" required=""
+                       formControlName="eventTitle" placeholder="Enter Event Title...">
+              </div>
+
+              <div class="form-group">
+                <label>Upload Gallery Images:</label>
+                <input type="file" (change)="fileUpload($event, i)" multiple  accept="image/*" style="height: 100%"/>
+              </div>
+
+              <div class="form-group">
+                <span class="imagecontainer" *ngFor="let image of nestedReactiveForm.controls.userforms.controls[i].controls['images'].controls; let j = index">
+                  <img [src] ="image.value" style="width: 50px; height: 50px; margin-top: 5px">
+                  <div class="overlay">
+                    <a class="icon" title="remove" (click)="removeImage(i,j)">
+                      <i class="fa fa-trash" style="color: red"></i>
+                    </a>
+                  </div>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success" [disabled]="!nestedReactiveForm.valid" (click)="save(nestedReactiveForm.value)">Submit</button>
+        <button type="submit" class="btn btn-primary" style="float: right" (click)="addNewForm()">Add</button>
+      </form>
+    </div>
+  </div>
+</div>

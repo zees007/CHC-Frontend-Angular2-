@@ -1,0 +1,23 @@
+<h1>Add YouTube Tutorials</h1>
+<form [formGroup]="tutorialForm">
+
+  <div class="form-group">
+    <label for="videoTitle">*Tutorial's Title</label>
+    <input type="text" class="form-control" id="videoTitle" formControlName="videoTitle" required [(ngModel)]="tutorial.videoTitle">
+  </div>
+  <div *ngIf="tutorialForm.controls.videoTitle.errors && (tutorialForm.controls.videoTitle.touched || tutorialForm.controls.videoTitle.dirty) " style="color: red">
+    <div *ngIf="tutorialForm.hasError('required', 'videoTitle')"></div>
+    Video Title is Required.
+  </div>
+
+  <div class="form-group">
+    <label for="videoIdUrl">*Tutorial's Playlist ID</label>
+    <input type="text" class="form-control" id="videoIdUrl" formControlName="videoIdUrl" [(ngModel)]="tutorial.videoIdUrl">
+  </div>
+  <div *ngIf="tutorialForm.controls.videoIdUrl.errors && (tutorialForm.controls.videoIdUrl.touched || tutorialForm.controls.videoIdUrl.dirty) " style="color: red">
+    <div *ngIf="tutorialForm.hasError('required', 'videoIdUrl')"></div>
+    Video ID is Required.
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]="!tutorialForm.valid" (click)="submitTutorialForm(tutorialForm)">Submit</button>
+
+</form>

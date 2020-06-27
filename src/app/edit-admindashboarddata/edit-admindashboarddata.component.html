@@ -1,0 +1,66 @@
+<!-- Default form register -->
+<form class="text-center border border-light p-3" [formGroup]="editStudentByAdminForm">
+  <p class="h4 mb-4">EDIT STUDENT</p>
+
+  <div class="form-row mb-4">
+    <div class="form-group col">
+      <input type="text" class="form-control" formControlName="serial" name="serial" placeholder="Serial" [(ngModel)]="selectedEmail.serial">
+    </div>
+    <div class="form-group col">
+      <input type="text" class="form-control" formControlName="studentName" name="studentName" placeholder="*Student Name" [(ngModel)]="selectedEmail.studentName">
+    </div>
+<!--    <div *ngIf="addStudentByAdminForm.controls.studentName.errors && (addStudentByAdminForm.controls.studentName.touched || addStudentByAdminForm.controls.studentName.dirty) " style="color: red">-->
+<!--      <div *ngIf="addStudentByAdminForm.hasError('required', 'studentName')"></div>-->
+<!--      Student name is Required.-->
+<!--    </div>-->
+    <div class="form-group col">
+      <input type="text"  class="form-control" formControlName="studentFatherName" name="studentFatherName" placeholder="Father Name" [(ngModel)]="selectedEmail.studentFatherName">
+    </div>
+    <div class="form-group col">
+      <input type="date" class="form-control" formControlName="studentDob" name="studentDob" placeholder="Date Of Birth" [(ngModel)]="selectedEmail.studentDob">
+    </div>
+
+  </div>
+
+  <div class="form-row mb-4">
+    <div class="form-group col">
+      <input type="text"  class="form-control" formControlName="studentClass" name="studentClass" placeholder="Student Class" [(ngModel)]="selectedEmail.studentClass">
+    </div>
+    <div class="form-group col">
+      <input type="text" class="form-control" formControlName="studentSchoolName" name="studentSchoolName" placeholder="School" [(ngModel)]="selectedEmail.studentSchoolName">
+    </div>
+    <div class="form-group col">
+      <input type="tel" class="form-control" formControlName="studentContactNumber"  name="studentContactNumber" placeholder="*Mobile Number eg. 9899999999" [(ngModel)]="selectedEmail.studentContactNumber">
+    </div>
+<!--    <div *ngIf="addStudentByAdminForm.controls.studentContactNumber.errors && (addStudentByAdminForm.controls.studentContactNumber.touched || addStudentByAdminForm.controls.studentContactNumber.dirty) " style="color: red">-->
+<!--      <div *ngIf="addStudentByAdminForm.hasError('required', 'studentContactNumber')">Mobile Number is Required.</div>-->
+<!--    </div>-->
+  </div>
+
+  <div class="form-row mb-4">
+    <div class="form-group col">
+      <input type="text"  class="form-control" formControlName="studentEmail" name="studentEmail" placeholder="Student Email" [(ngModel)]="selectedEmail.studentEmail">
+    </div>
+    <div class="form-group col">
+      <input type="text" class="form-control" formControlName="studentAddress" name="studentAddress" placeholder="Student's Address" [(ngModel)]="selectedEmail.studentAddress">
+    </div>
+  </div>
+
+  <div class="form-row mb-4">
+    <div class="form-group col">
+      <input type="text"  class="form-control" formControlName="feePaid"  name="feePaid" placeholder="Fee Paid" [(ngModel)]="selectedEmail.feePaid">
+    </div>
+    <div class="form-group col">
+      <input type="text" class="form-control" formControlName ="feeBalance" name="feeBalance" placeholder="Fee Balance" [(ngModel)]="selectedEmail.feeBalance">
+    </div>
+  </div>
+
+  <div class="form-group form-row mb-4">
+    <input type="file" (change)="onSelectFile($event)" formControlName="studentImage" aria-describedby="defaultRegisterFormPhoneHelpBlock" name="studentImage" accept="image/*">
+  </div>
+
+  <!-- Sign up button -->
+  <button class="btn btn-success" type="submit"  (click)="submitUpdatedStudentForm(editStudentByAdminForm)" >Submit</button>
+
+</form>
+<!-- Default form register -->

@@ -1,0 +1,11 @@
+<section class="header-fixed">
+<app-header></app-header>
+</section>
+
+<section class="container">
+<app-gallary-contents ></app-gallary-contents>
+</section>
+
+<div class="gallary_favicon" *ngIf="(adminLoginStatus$ | async) as adminLoginStatus">
+  <i class="far fa-file-image" aria-hidden="true" style="font-size: 24px" data-toggle="tooltip" title="Add Gallary" (click)="openAddGallaryPopUp()"></i>
+</div>

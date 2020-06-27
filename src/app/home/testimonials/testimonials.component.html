@@ -1,0 +1,73 @@
+ <ngb-carousel
+  [showNavigationArrows]="false"
+  [showNavigationIndicators]="true"
+  interval="1200"
+  [keyboard]="true"
+  [pauseOnHover]="true"
+  [wrap]="true"
+  [activeId]="'secondSlide'">
+
+
+  <ng-template ngbSlide *ngFor="let testimonialData of testimonial">
+    <div class="testi-info-text" >
+      <h3>What Students Say About Us</h3>
+      <p>
+        <span class="fa fa-quote-left"></span>{{testimonialData.studentFeedback}}
+        <span class="fa ml-2 fa-quote-right"></span>
+      </p>
+      <h5>{{testimonialData.studentName}}</h5>
+      <div class="testi-pos">
+        <img [src]="testimonialData.studentImage.path" alt="" class="img-fluid rounded-circle mb-3" id="stuTestimonialpic"/>
+        <h4>{{testimonialData.studentCurrentStatus}} | {{testimonialData.studentBatch}}</h4>
+        <div class="add_test_favicon" *ngIf="(adminLoginStatus$ | async) as adminLoginStatus">
+<!--          <i class="faculty_icon fa fa-trash" aria-hidden="true" data-toggle="tooltip" title="Delete Testimonial" (click)="deleteTestimonial(testimonialData.id)"></i>-->
+          <a data-toggle="tooltip" title="Delete"><i class="faculty_icon fas fa-trash" (click)="deleteTestimonial(testimonialData)"></i></a>
+          <img class="faculty_icon" src="../../assets/join-testimonial-icon.png" alt="" data-toggle="tooltip" title="Add Testimonial" (click)="openAddTestimonalPopUp()">
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+
+
+
+
+<!--  <ng-template ngbSlide>-->
+<!--    <div class="testi-info-text">-->
+<!--      <h3>What Parents Say About Us</h3>-->
+<!--      <p>-->
+<!--        <span class="fa fa-quote-left"></span> Firstly I am thankful to Concept Hub Classes as you have opened CHC in our locality. In CHC teachers are friendly and I enjoy learning here, Specially Mathematics. Teachers are so motivating and they always-->
+<!--        give their opinion about study.-->
+<!--        <span class="fa ml-2 fa-quote-right"></span>-->
+<!--      </p>-->
+<!--      <h5> ...John Elisa </h5>-->
+<!--      <div class="testi-pos">-->
+<!--        <img src="../../assets/ts1.jpg" alt="" class="img-fluid rounded-circle mb-3" id="stuTestimonialpic"/>-->
+<!--        <h4>Studying in Jamia | Batch-2019</h4>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </ng-template>-->
+
+<!--  <ng-template ngbSlide>-->
+
+<!--    <div class="testi-info-text">-->
+<!--      <h3>What Parents Say About Us</h3>-->
+
+<!--      <p>-->
+<!--        <span class="fa fa-quote-left"></span> CHC is all about teachers and students. Teachers of CHC are very effective, well mannered, motivators, positive approach and teach students how to achieve goal. I am very blissful to the part of Concept-->
+<!--        Hub Classes.-->
+<!--        <span class="fa ml-2 fa-quote-right"></span>-->
+<!--      </p>-->
+<!--      <h5> ...John Elisa adil</h5>-->
+<!--      <div class="testi-pos">-->
+<!--         <img src="../../assets/ts1.jpg" alt="" class="img-fluid rounded-circle mb-3" id="stuTestimonialpic"/>-->
+
+<!--        <h4>Studying in Jamia | Batch-2019</h4>-->
+
+<!--      </div>-->
+<!--    </div>-->
+<!--  </ng-template>-->
+
+</ngb-carousel>
+
+

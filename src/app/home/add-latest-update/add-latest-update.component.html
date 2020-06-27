@@ -1,0 +1,28 @@
+<h1>Add Latest Updates</h1>
+<form [formGroup]="latestUpdateForm" (ngSubmit)="addLatestUpdate(latestUpdateForm)">
+
+  <div class="form-group">
+    <label for="heading">*Heading</label>
+    <input type="text" class="form-control" id="heading" placeholder="Enter heading (Max. 20 Characters)" formControlName="heading" required [(ngModel)]="latestUpdate.heading">
+    <div *ngIf="latestUpdateForm.controls.heading.errors && (latestUpdateForm.controls.heading.touched || latestUpdateForm.controls.heading.dirty) " style="color: red">
+      <div *ngIf="latestUpdateForm.hasError('required', 'heading')"></div>
+      Heading is Required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="subHeading">Sub-Heading</label>
+    <input type="text" class="form-control" id="subHeading" placeholder="Max. 30 Characters" formControlName="subHeading" [(ngModel)]="latestUpdate.subHeading" >
+  </div>
+
+  <div class="form-group">
+    <label for="latestNote">Latest Note</label>
+    <input type="text" class="form-control" id="latestNote" placeholder="Max. 255 Characters" formControlName="latestNote" [(ngModel)]="latestUpdate.latestNote">
+  </div>
+
+  <button type="submit" class="btn btn-success" [disabled]="!latestUpdateForm.valid">Submit</button>
+
+</form>
+
+
+

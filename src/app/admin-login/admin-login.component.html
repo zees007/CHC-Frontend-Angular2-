@@ -1,0 +1,33 @@
+<div class="container">
+<form #adminLoginForm="ngForm"(ngSubmit)="onAdminLogin()">
+<div id="signin">
+  <div class="form-title">Admin Login Panel</div>
+  <h3 class="text-danger">{{msg}}</h3>
+  <div class="input-field">
+    <label for="username">Username</label>
+    <input type="text" id="username" name="username" required [(ngModel)]="adminlogin.username" #username='ngModel'
+           [class.is-invalid]="username.invalid && username.touched"/>
+    <small class="text-danger" [class.d-none]="username.valid || username.untouched">Username is required.</small>
+
+
+  </div>
+  <div class="input-field">
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" [(ngModel)]="adminlogin.password" required #password='ngModel'
+           [class.is-invalid]="password.invalid && password.touched"/>
+    <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required.</small>
+  </div>
+  <a href="" class="forgot-pw">Forgot Password ?</a>
+  <button class="login">Login</button>
+  <div class="check">
+    <i class="material-icons">check</i>
+  </div>
+</div>
+<div id="gif">
+  <a href="https://dribbble.com/shots/2197140-New-Material-Text-Fields">
+    <img src="https://d13yacurqjgara.cloudfront.net/users/472930/screenshots/2197140/efsdfsdae.gif" alt="">
+  </a>
+</div>
+</form>
+
+</div>

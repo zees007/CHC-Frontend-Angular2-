@@ -1,0 +1,58 @@
+<app-admin-header></app-admin-header>
+<div class="container">
+  <h1 style="font-weight: bold">Enrolled Students List</h1>
+  <div class="createButton">
+    <div class="topnav">
+      <a (click)="openAddStudentPopUP()" style="cursor: pointer;">ADD +</a>
+      <div class="search-container">
+        <form>
+          <input type="text" placeholder="Search.." name="search" [(ngModel)]="searchText">
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="row col-md-24 col-md-offset-2 custyle">
+    <table class="table table-striped table-dark">
+      <thead >
+      <tr style="font-weight: bold; font-size: 12px">
+        <td>ENTROLL</td>
+        <td>NAME</td>
+        <td>FATHER'S NAME</td>
+        <td>DOB</td>
+        <td>CLASS</td>
+        <td>SCHOOL</td>
+        <td>CONTACT</td>
+        <td>EMAIL</td>
+        <td>ADDRESS</td>
+        <td>PAID</td>
+        <td>BALANCE</td>
+        <td>Registered AT</td>
+        <td>PHOTO</td>
+        <td>ACTION</td>
+      </tr>
+      </thead>
+      <tbody style="font-size: 10px">
+      <tr *ngFor="let regisByAdmin of registrationsByAdmin | filter:searchText; let i = index">
+        <td>{{regisByAdmin.serial}}</td>
+        <td>{{regisByAdmin.studentName}}</td>
+        <td>{{regisByAdmin.studentFatherName}}</td>
+        <td>{{regisByAdmin.studentDob}}</td>
+        <td>{{regisByAdmin.studentClass}}</td>
+        <td>{{regisByAdmin.studentSchoolName}}</td>
+        <td>{{regisByAdmin.studentContactNumber}}</td>
+        <td>{{regisByAdmin.studentEmail}}</td>
+        <td>{{regisByAdmin.studentAddress}}</td>
+        <td>{{regisByAdmin.feePaid}}</td>
+        <td>{{regisByAdmin.feeBalance}}</td>
+        <td>{{regisByAdmin.registeredDate}}</td>
+        <td><img [src]="regisByAdmin.studentImage.path" style="width: 100px; height: 100px"></td>
+        <td><i class="fas fa-trash" (click)="deleteRegisteredByAdmin(regisByAdmin.serial)" data-toggle="tooltip" title="Delete" style="color: red; cursor: pointer; font-size: 12px"></i>
+          <br><i class="fa fa-edit" (click)="editRegistrationByAdmin(regisByAdmin)" data-toggle="tooltip" title="Edit" style="color: red; cursor: pointer; font-size: 12px"></i>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

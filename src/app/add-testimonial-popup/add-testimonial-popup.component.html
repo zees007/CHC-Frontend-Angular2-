@@ -1,0 +1,38 @@
+
+    <h1>Add Student Testimonial</h1>
+    <form [formGroup]="reactiveForm">
+
+      <div class="form-group">
+        <label for="studentName">*Student's Name</label>
+        <input type="text" class="form-control" id="studentName" formControlName="studentName" required [(ngModel)]="testimonial.studentName">
+      </div>
+      <div *ngIf="reactiveForm.controls.studentName.errors && (reactiveForm.controls.studentName.touched || reactiveForm.controls.studentName.dirty) " style="color: red">
+        <div *ngIf="reactiveForm.hasError('required', 'studentName')"></div>
+        Student name is Required.
+      </div>
+
+      <div class="form-group">
+        <label for="studentBatch">Student's Batch</label>
+        <input type="text" class="form-control" id="studentBatch" formControlName="studentBatch" [(ngModel)]="testimonial.studentBatch">
+      </div>
+
+      <div class="form-group">
+        <label for="studentCurrentStatus">Student's Current Status</label>
+        <input type="text" class="form-control" id="studentCurrentStatus" formControlName="studentCurrentStatus" [(ngModel)]="testimonial.studentCurrentStatus">
+      </div>
+
+      <div class="form-group">
+        <label for="studentFeedback">Student's Feedback</label>
+        <textarea type="text" class="form-control" id="studentFeedback" formControlName="studentFeedback" [(ngModel)]="testimonial.studentFeedback"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="studentImage">Student's Photo</label>
+        <input type="file" class="form-control-file" id="studentImage" accept="image/*" formControlName="studentImage" (change)="onSelectFile($event)" [(ngModel)]="testimonial.studentImage">
+        <button type="button" class="btn btn-success" (click)="uploadFile()">Upload File</button>
+      </div>
+
+      <button type="submit" class="btn btn-success" [disabled]="!reactiveForm.valid" (click)="saveNewTestimonial(reactiveForm)">Submit</button>
+
+    </form>
+

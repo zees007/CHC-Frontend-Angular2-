@@ -1,0 +1,226 @@
+/*-- header --*/
+.navbar-brand{
+  margin-left: -60px;
+}
+header {
+  position: absolute;
+  width: 100%;
+  padding: 15px 0;
+  z-index: 9;
+  background-color: #333333;
+}
+.right-p li ,.right-p li  a{
+  display: inline-block;
+  color: #ddd;
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+.right-p li  span{
+  color: #fff;
+}
+/*-- header --*/
+
+/* Giving a background-color to the nav container. */
+nav {
+  margin:0;
+  padding: 0;
+}
+
+
+
+/* Since we'll have the "ul li" "float:left"
+ * we need to add a clear after the container. */
+
+nav:after {
+  content:"";
+  display:table;
+  clear:both;
+}
+
+/* Removing padding, margin and "list-style" from the "ul",
+ * and adding "position:reltive" */
+nav ul {
+  float: right;
+  padding:0;
+  margin:0;
+  list-style: none;
+  position: relative;
+}
+
+/* Positioning the navigation items inline */
+nav ul li {
+  margin: 0px;
+  display:inline-block;
+  float: left;
+}
+
+/* Styling the links */
+nav a {
+  color: #ddd;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-left: 0;
+  padding-right: 0;
+  padding: 10px 13px;
+  font-weight: 400;
+  font-size: 15px;
+  vertical-align: middle;
+}
+nav ul li ul li:hover { background: #f8f9fa; }
+
+/* Background color change on Hover */
+nav a:hover {
+  color: #ddd;
+}
+.menu li.active  a{
+  color: #fff;
+}
+
+/* Hide Dropdowns by Default
+ * and giving it a position of absolute */
+nav ul ul {
+  display: none;
+  position: absolute;
+  /* has to be the same number as the "line-height" of "nav a" */
+  top: 30px;
+  background: #fff;
+  padding: 10px;
+}
+
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+  display:inherit;
+}
+
+/* Fisrt Tier Dropdown */
+nav ul ul li {
+  width:170px;
+  float:none;
+  display:list-item;
+  position: relative;
+}
+nav ul ul li a {
+  color: #333;
+  padding: 5px 10px;
+  display: block;
+}
+/* Second, Third and more Tiers
+ * We move the 2nd and 3rd etc tier dropdowns to the left
+ * by the amount of the width of the first tier.
+*/
+nav ul ul ul li {
+  position: relative;
+  top:-60px;
+  /* has to be the same number as the "width" of "nav ul ul li" */
+  left:170px;
+}
+/* Change ' +' in order to change the Dropdown symbol */
+li > a:only-child:after { content: ''; }
+.banner-form-w3{
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+/* banner start*/
+.banner {
+  background-image: url("../../assets/banner.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 770px;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-size: cover;
+}
+.layer {
+  background: rgba(0, 0, 0, 0.5);
+}
+.w3ls_banner_txt p {
+  color: #eee;
+  text-transform: capitalize;
+  font-size: 15px;
+}
+.banner-text-w3pvt {
+  padding: 17vw 0 11vw;
+  box-sizing: border-box;
+}
+.banner-form-w3 {
+  padding: 12vw 0 0vw;
+  box-sizing: border-box;
+}
+
+h3.b-w3ltxt span {
+  color: #fff;
+}
+h3.b-w3ltxt {
+  font-size: 3.5em;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 1px 1px 0px #333;
+}
+
+h4.b-w3ltxt {
+  font-size: 3em;
+  letter-spacing: 3px;
+  font-weight: 300;
+  color: #fff;
+}
+
+.btn-banner {
+  background: #3369e7;
+  color: #fff;
+  font-size: 15px;
+  letter-spacing: 1px;
+  padding: 12px 30px;
+  display: inline-block;
+}
+.btn-banner:hover  {
+  color: #fff;
+}
+
+.form-style-w3ls input[type="text"], .form-style-w3ls input[type="email"], .form-style-w3ls input[type="password"],select {
+  outline: none;
+  font-size: 10px;
+  border: none;
+  color: #666;
+  background: #f1f1f1;
+  letter-spacing: 0.5px;
+  padding: 7px 10px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+.form-style-w3ls button.btn {
+  color: #fff;
+  background: #3369e7;
+  border: none;
+  padding: 7px 0;
+  outline: none;
+  border-radius: 0;
+  width: 100%;
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  -webkit-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+  transition: 0.5s all;
+}
+.form-style-w3ls input[type="submit"]:hover {
+  background: #dc3545;
+}
+.padding {
+  padding: 2.5em;
+  background: #fff;
+}
+.form-style-w3ls span {
+  font-size: 10px;
+  color: #666;
+}
+.form-style-w3ls span a {
+  color: #3369e7;
+}
+
+/*-- //banner --*/
